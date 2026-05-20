@@ -180,7 +180,7 @@ export function Header({ onMenuClick }: HeaderProps) {
               if (url) window.open(url, '_blank');
               else setIsWarningOpen(true);
            }}
-            className="hidden md:flex px-4 py-2 bg-amber-400 text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-amber-500 transition-colors shadow-sm items-center gap-2"
+            className="hidden md:flex px-4 py-2 bg-red-600 text-white rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-sm items-center gap-2"
          >
            Buka Frontend
         </button>
@@ -198,7 +198,7 @@ export function Header({ onMenuClick }: HeaderProps) {
           className="flex items-center gap-2 hover:bg-zinc-800 p-2 rounded-xl transition-colors border border-zinc-800/40 hover:border-zinc-700"
         >
           <BookOpen className="w-5 h-5 text-zinc-300" />
-          <span className="hidden xl-block text-xs font-bold text-zinc-300 uppercase tracking-widest">Panduan</span>
+          <span className="hidden xl:block text-xs font-bold text-zinc-300 uppercase tracking-widest">Panduan</span>
         </button>
 
         {/* Notification Bell */}
