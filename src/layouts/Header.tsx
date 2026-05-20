@@ -136,19 +136,19 @@ export function Header({ onMenuClick }: HeaderProps) {
   };
 
   return (
-    <header className="h-20 bg-white border-b border-zinc-200 flex items-center justify-between px-4 md:px-8 sticky top-0 z-10 w-full">
+    <header className="h-20 bg-[#09090b] border-b border-zinc-800/50 flex items-center justify-between px-4 md:px-8 sticky top-0 z-10 w-full shadow-sm">
       <div className="flex items-center gap-3 md:gap-6">
         {/* Mobile Menu Toggle */}
         <button 
           onClick={onMenuClick}
-          className="p-2 -ml-2 text-zinc-500 md:hidden hover:bg-zinc-50 rounded-xl transition-colors"
+          className="p-2 -ml-2 text-zinc-300 md:hidden hover:bg-zinc-800 rounded-xl transition-colors"
         >
           <Menu className="w-6 h-6" />
         </button>
 
         <div className="flex-1 min-w-0 flex flex-col items-start leading-tight">
           <div className="flex items-center gap-2 w-full">
-            <h1 className="text-xl font-black text-amber-500 tracking-tighter uppercase italic truncate" title={settings?.site_name || 'Uni-Inside'}>
+            <h1 className="text-xl font-black text-amber-400 tracking-tighter uppercase italic truncate" title={settings?.site_name || 'Uni-Inside'}>
               {settings?.site_name || 'Uni-Inside'}
             </h1>
             {(() => {
@@ -162,7 +162,7 @@ export function Header({ onMenuClick }: HeaderProps) {
               ) : null;
             })()}
           </div>
-          <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest pl-0.5">
+          <span className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest pl-0.5">
             PANEL <span className="text-zinc-400">{(() => {
               // Role-based panel label
               if (!activeRole || activeRole === 'admin' || activeRole === 'super_admin') return 'ADMIN';
@@ -174,20 +174,20 @@ export function Header({ onMenuClick }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-4 md:gap-6">
-        <button 
+          <button 
            onClick={() => {
               const url = settings?.global_options?.frontend_url;
               if (url) window.open(url, '_blank');
               else setIsWarningOpen(true);
            }}
-           className="hidden md:flex px-4 py-2 bg-amber-400 text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-amber-500 transition-colors shadow-sm items-center gap-2"
+            className="hidden md:flex px-4 py-2 bg-amber-400 text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-amber-500 transition-colors shadow-sm items-center gap-2"
          >
            Buka Frontend
         </button>
 
         <div 
           onClick={() => navigate('/dashboard/updates')}
-          className="flex items-center gap-2 cursor-pointer hover:bg-zinc-50 p-2 rounded-xl transition-colors border border-zinc-200 hover:border-zinc-300"
+          className="flex items-center gap-2 cursor-pointer hover:bg-zinc-800 p-2 rounded-xl transition-colors border border-zinc-800/40 hover:border-zinc-700"
         >
           <History className="w-5 h-5 text-zinc-500" />
           <span className="hidden xl:block text-xs font-bold text-zinc-600 uppercase tracking-widest">Histori Update</span>
@@ -195,17 +195,17 @@ export function Header({ onMenuClick }: HeaderProps) {
 
         <button 
           onClick={() => window.open('https://drive.google.com/file/d/1ZaUlAvkTbGGBH8zTmLKxSJhAPoPO7ik7/view?usp=sharing', '_blank')}
-          className="flex items-center gap-2 hover:bg-zinc-50 p-2 rounded-xl transition-colors border border-zinc-200 hover:border-zinc-300"
+          className="flex items-center gap-2 hover:bg-zinc-800 p-2 rounded-xl transition-colors border border-zinc-800/40 hover:border-zinc-700"
         >
-          <BookOpen className="w-5 h-5 text-zinc-500" />
-          <span className="hidden xl:block text-xs font-bold text-zinc-600 uppercase tracking-widest">Panduan</span>
+          <BookOpen className="w-5 h-5 text-zinc-300" />
+          <span className="hidden xl-block text-xs font-bold text-zinc-300 uppercase tracking-widest">Panduan</span>
         </button>
 
         {/* Notification Bell */}
         <div className="relative" ref={notifRef}>
           <button 
             onClick={() => setIsNotifOpen(!isNotifOpen)}
-            className="relative p-2.5 text-zinc-500 hover:text-amber-500 transition-colors rounded-full hover:bg-zinc-50 border border-transparent"
+            className="relative p-2.5 text-zinc-300 hover:text-amber-400 transition-colors rounded-full hover:bg-zinc-800 border border-transparent"
           >
             <Bell className="w-5 h-5" />
             {unreadCount > 0 && (
@@ -318,13 +318,13 @@ export function Header({ onMenuClick }: HeaderProps) {
           )}
         </div>
         
-        <div className="flex items-center gap-4 pl-6 border-l border-zinc-200">
+        <div className="flex items-center gap-4 pl-6 border-l border-zinc-800/40">
           <div 
             className="text-right hidden sm:block cursor-pointer"
             onClick={() => navigate('/profile')}
           >
-            <p className="text-sm font-bold text-zinc-900 leading-none hover:text-amber-500 transition-colors">{user?.name || 'Admin User'}</p>
-            <p className="text-[11px] text-zinc-500 font-medium mt-1 uppercase tracking-wider">{(() => {
+            <p className="text-sm font-bold text-white leading-none hover:text-amber-400 transition-colors">{user?.name || 'Admin User'}</p>
+            <p className="text-[11px] text-zinc-300 font-medium mt-1 uppercase tracking-wider">{(() => {
               // Role-based role label in profile section
               if (!activeRole || activeRole === 'admin' || activeRole === 'super_admin') return 'ADMIN';
               return activeRole.replace(/_/g, ' ').toUpperCase();
@@ -334,11 +334,11 @@ export function Header({ onMenuClick }: HeaderProps) {
             className="flex items-center gap-2 cursor-pointer group"
             onClick={() => navigate('/profile')}
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-zinc-100 group-hover:border-amber-400 transition-all shadow-sm">
+            <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-zinc-800/40 group-hover:border-amber-400 transition-all shadow-sm">
                 {user?.profile_picture_url ? (
                     <img src={user.profile_picture_url} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
-                    <div className="w-full h-full bg-zinc-100 flex items-center justify-center text-zinc-400">
+                    <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-400">
                         <UserCircle className="w-8 h-8" />
                     </div>
                 )}
